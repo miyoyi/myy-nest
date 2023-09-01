@@ -1,0 +1,1 @@
+import{_ as e}from"./index.9b6e4e6b.js";import{z as _,aB as t,bg as c}from"./arco.f39e6d71.js";const n={};function s(r,a){const o=c;return _(),t(o,{class:"footer"})}const f=e(n,[["render",s],["__scopeId","data-v-099ed054"]]);export{f as F};
