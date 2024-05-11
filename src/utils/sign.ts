@@ -1,4 +1,4 @@
-import { FindPersonDto } from 'src/person/dto/find-person.dto';
+import { FindPersonDto } from 'src/login/dto/find-person.dto';
 import { Md5 } from 'ts-md5';
 
 function getSign(params: any, signKey: string) {

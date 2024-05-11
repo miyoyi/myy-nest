@@ -7,6 +7,7 @@ import { Response } from './common/response';
 import { HttpFilter } from './common/filter';
 import { middleWareAll } from './common/while-list';
 import { PipePipe } from './pipe/pipe.pipe';
+import { logger } from './utils/logger';
 
 import * as cors from 'cors';
 import * as fs from 'fs';
@@ -34,6 +35,14 @@ async function bootstrap() {
   app.useGlobalFilters(new HttpFilter());
   app.useGlobalPipes(new PipePipe());
   app.use(middleWareAll);
+  app.use((req: any, res: any, next: () => void) => {
+    const paramsString = JSON.stringify(req.params);
+    const queryString = JSON.stringify(req.query);
+    logger.info(
+      `[${req.method}] ${req.url}【Params: ${paramsString}, Query: ${queryString}】`,
+    );
+    next();
+  });
   app.use(cors()); // 跨域
 
   const SSLPORT = 3001;
